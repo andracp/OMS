@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "buy-side-oms"
+version = "0.1.0"
+description = "Buy-side Order Management System built with FastAPI"
+readme = "README.md"
+requires-python = ">=3.11"
+
+authors = [
+  { name = "Andra Popa", email = "popa.andra90@gmail.com" }
+]
+
+dependencies = [
+  "fastapi>=0.110",
+  "uvicorn[standard]>=0.27",
+  "pydantic>=2.5",
+  "sqlalchemy>=2.0",
+  "alembic>=1.13",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "httpx>=0.26",
+  "ruff>=0.3",
+  "black>=24.1",
+]
+

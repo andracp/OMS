@@ -1,0 +1,8 @@
+pyproject.toml
+app/__init__.py
+app/main.py
+buy_side_oms.egg-info/PKG-INFO
+buy_side_oms.egg-info/SOURCES.txt
+buy_side_oms.egg-info/dependency_links.txt
+buy_side_oms.egg-info/requires.txt
+buy_side_oms.egg-info/top_level.txt

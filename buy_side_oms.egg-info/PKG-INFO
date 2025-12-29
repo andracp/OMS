@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: buy-side-oms
+Version: 0.1.0
+Summary: Buy-side Order Management System built with FastAPI
+Author-email: Andra Popa <popa.andra90@gmail.com>
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: fastapi>=0.110
+Requires-Dist: uvicorn[standard]>=0.27
+Requires-Dist: pydantic>=2.5
+Requires-Dist: sqlalchemy>=2.0
+Requires-Dist: alembic>=1.13
+Provides-Extra: dev
+Requires-Dist: pytest>=8.0; extra == "dev"
+Requires-Dist: httpx>=0.26; extra == "dev"
+Requires-Dist: ruff>=0.3; extra == "dev"
+Requires-Dist: black>=24.1; extra == "dev"
