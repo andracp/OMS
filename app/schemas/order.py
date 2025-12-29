@@ -1,24 +1,24 @@
-from enum import Enum
-from pydantic import BaseModel, Field
-from datetime import datetime
+from pydantic import BaseModel
 from typing import Optional
-from uuid import UUID
+from datetime import datetime
+from enum import Enum
 
-class Side(str, Enum):
-    BUY = "BUY"
-    SELL = "SELL"
+
+class OrderStatus(str, Enum):
+    NEW = "NEW"
+    CANCELED = "CANCELED"
+    FILLED = "FILLED"
+
 
 class OrderCreate(BaseModel):
-    symbol: str = Field(..., examples=["AAPL"])
-    side: Side
-    qty: int = Field(..., gt=0)
-    limit_price: Optional[float] = Field(None, gt=0)
+    symbol: str
+    side: str              # BUY / SELL
+    qty: int
+    order_type: str        # MARKET / LIMIT
+    limit_price: Optional[float] = None
+
 
 class OrderOut(OrderCreate):
-    id: UUID
-    status: str
+    id: str
+    status: OrderStatus
     created_at: datetime
-
-
-class OrderStatus:
-    pass

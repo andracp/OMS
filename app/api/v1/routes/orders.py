@@ -7,11 +7,15 @@ from app.services.order_store import store
 router = APIRouter()
 
 @router.post("/", response_model=OrderOut, status_code=status.HTTP_201_CREATED)
-def create_order(payload: OrderCreate):
-    # if LIMIT, require limit_price
-    if payload.order_type.value == "LIMIT" and payload.limit_price is None:
-        raise HTTPException(status_code=400, detail="limit_price is required for LIMIT orders")
+async def create_order(payload: OrderCreate):
+    if payload.order_type == "LIMIT" and payload.limit_price is None:
+        raise HTTPException(
+            status_code=400,
+            detail="limit_price is required for LIMIT orders"
+        )
+
     return store.create(payload)
+
 
 @router.get("/", response_model=List[OrderOut])
 def list_orders():
